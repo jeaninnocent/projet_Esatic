@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'gestion_concours_app/style.css'%}" />
+    <title>Accueil - ESATIC</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><span>E</span>SATIC</div>
+      <nav>
+        <ul>
+          <li><a href="{% url 'index' %}">ECOLE</a></li>
+          <li>
+            <a href="#">FORMATION</a>
+            <div class="dropdown-menu">
+              <a href="#prepa">PARCOURS PRÉPA</a>
+              <a href="#ingenieur">PARCOURS INGÉNIEUR</a>
+              <a href="#licence">PARCOURS LICENCE</a>
+              <a href="#masters">PARCOURS MASTERS</a>
+            </div>
+          </li>
+          <li>
+            <a href="#vie-estudiantine">VIE ESTUDIANTINE</a>
+            <div class="dropdown-menu">
+              <a href="#reglement">RÈGLEMENT PÉDAGOGIQUE</a>
+              <a href="#activites">ACTIVITÉS EXTRASCOLAIRES</a>
+              <a href="#associations">ASSOCIATIONS & CLUBS</a>
+              <a href="#bibliotheque">BIBLIOTHÈQUE</a>
+            </div>
+          </li>
+          <li><a href="{% url 'concours' %}">CONCOURS</a></li>
+          <li><a href="{% url 'contact' %}">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Section Parallaxe Hero -->
+    <section class="parallax-section" id="accueil">
+      <div class="parallax-bg"></div>
+      <div class="parallax-overlay"></div>
+      <div class="hero-content">
+        <h1>Bienvenue à l'ESATIC</h1>
+        <p>
+          École Supérieure Africaine des Technologies de l'Information et de la
+          Communication
+        </p>
+        <a href="#stats" class="hero-btn">Découvrir nos chiffres</a>
+      </div>
+    </section>
+
+    <!-- Section Statistiques -->
+    <section class="stats-section" id="stats">
+      <div class="stats-container">
+        <h2 class="stats-title">L'ESATIC en Chiffres</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🎓</div>
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Étudiants</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">👨‍🏫</div>
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">Enseignants</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Années d'Excellence</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌍</div>
+            <div class="stat-number" data-target="17">0</div>
+            <div class="stat-label">Pays Partenaires</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💼</div>
+            <div class="stat-number" data-target="95">0</div>
+            <div class="stat-label">% Employabilité</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📚</div>
+            <div class="stat-number" data-target="13">0</div>
+            <div class="stat-label">Filières</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Contenu -->
+    <section class="content-section">
+      <div class="content-container">
+        <h2>Notre Excellence</h2>
+        <p>
+          L'ESATIC, École Supérieure Africaine des Technologies de l'Information
+          et de la Communication, est un établissement d'enseignement supérieur
+          de référence en Afrique de l'Ouest.
+        </p>
+        <p>
+          Depuis sa création, l'ESATIC forme des experts dans les domaines des
+          télécommunications, du numérique, des réseaux et des systèmes
+          d'information.
+        </p>
+        <p>
+          Notre approche pédagogique innovante combine théorie et pratique pour
+          préparer nos étudiants aux défis du monde professionnel.
+        </p>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- Logo et Contact -->
+        <div class="footer-section logo-section">
+          <h1>ESATIC</h1>
+          <div class="contact-info">
+            <p><strong>Adresse:</strong></p>
+            <p>
+              Bd. de Marseille face à Bernabe – Km 4<br />
+              Treichville – 18 BP 1501 Abidjan 18<br />
+              Abidjan – Côte d'Ivoire
+            </p>
+            <p style="margin-top: 15px"><strong>Contact:</strong></p>
+            <p>📞 +225 27 21 21 81 00</p>
+            <p>
+              ✉
+              <a href="mailto:direction@esatic.edu.ci"
+                >direction@esatic.edu.ci</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- Accès Rapide -->
+        <div class="footer-section">
+          <h3>Accès Rapide</h3>
+          <ul class="footer-links">
+            <li><a href="#inscription">Inscription</a></li>
+            <li><a href="#reinscription">Réinscription</a></li>
+            <li><a href="#alumni">Alumni ESATIC</a></li>
+            <li><a href="#bibliotheque">Bibliothèque Numérique</a></li>
+          </ul>
+        </div>
+
+        <!-- Étudiant -->
+        <div class="footer-section">
+          <h3>Étudiant</h3>
+          <ul class="footer-links">
+            <li><a href="#nouveaux">Nouveaux étudiants</a></li>
+            <li><a href="#anciens">Anciens étudiants</a></li>
+            <li><a href="#guide">Guide étudiant</a></li>
+            <li><a href="#emploi">Emploi du temps</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="copyright">Copyright All Right Reserved 2024, ESATIC</div>
+        <div
+          class="scroll-top"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        ></div>
+      </div>
+    </footer>
+    <script>
+      // Effet Parallaxe
+      window.addEventListener("scroll", function () {
+        const parallaxBg = document.querySelector(".parallax-bg");
+        const scrolled = window.pageYOffset;
+        parallaxBg.style.transform = "translateY(" + scrolled * 0.5 + "px)";
+      });
+
+      // Animation des chiffres au scroll
+      const statCards = document.querySelectorAll(".stat-card");
+      let animated = false;
+
+      const observerOptions = {
+        threshold: 0.3,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            if (!animated) {
+              animated = true;
+              animateNumbers();
+            }
+          }
+        });
+      }, observerOptions);
+
+      statCards.forEach((card) => {
+        observer.observe(card);
+      });
+
+      function animateNumbers() {
+        const numbers = document.querySelectorAll(".stat-number");
+
+        numbers.forEach((number) => {
+          const target = parseInt(number.getAttribute("data-target"));
+          const duration = 2000;
+          const increment = target / (duration / 16);
+          let current = 0;
+
+          const updateNumber = () => {
+            current += increment;
+            if (current < target) {
+              number.textContent = Math.floor(current);
+              requestAnimationFrame(updateNumber);
+            } else {
+              number.textContent =
+                target +
+                (number.parentElement
+                  .querySelector(".stat-label")
+                  .textContent.includes("Employabilité")
+                  ? "%"
+                  : "+");
+            }
+          };
+
+          updateNumber();
+        });
+      }
+
+      // Smooth scroll pour les liens
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

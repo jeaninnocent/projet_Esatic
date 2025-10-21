@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concours d'Admission</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 33, 71, 0.95);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+      }
+
+      header .logo {
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 0px;
+      }
+
+      header nav ul {
+        list-style: none;
+        display: flex;
+        gap: 60px;
+      }
+
+      header nav a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        position: relative;
+        font-size: 1.2rem;
+      }
+
+      header nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #f39c12;
+        transition: width 0.3s;
+      }
+
+      header nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 2rem;
+      }
+
+      /* Section Header */
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-top: 2rem;
+      }
+
+      .section-header h1 {
+        font-size: 2.5rem;
+        color: #002b5c;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      /* Concours Grid */
+      .concours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .concours-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid #4a9eff;
+      }
+
+      .concours-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .concours-card h3 {
+        color: #002b5c;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .concours-card .date {
+        color: #4a9eff;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .concours-card p {
+        color: #555;
+        margin-bottom: 1.5rem;
+      }
+
+      .concours-card ul {
+        list-style: none;
+        margin: 1rem 0 1.5rem 0;
+      }
+
+      .concours-card ul li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #555;
+      }
+
+      .concours-card ul li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #4a9eff;
+        font-weight: bold;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #4a9eff;
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: background 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background: #002b5c;
+      }
+
+      /* Info Section */
+      .info-section {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-section h2 {
+        color: #002b5c;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .info-section p {
+        color: #555;
+        margin-bottom: 1rem;
+        line-height: 1.8;
+      }
+
+      .info-section ul {
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .info-section ul li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #555;
+      }
+
+      .info-section ul li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #4a9eff;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+.footer {
+  background: linear-gradient(135deg, #4c6585 0%, #2196f3 100%);
+  color: white;
+  padding: 50px 20px 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 150px;
+  margin: 0px 0px 30x 10px;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #ff4444;
+}
+
+.logo-section img {
+  max-width: 200px;
+  margin-bottom: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.contact-info a:hover {
+  opacity: 0.8;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  transform: translateX(5px);
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.copyright {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        nav ul {
+          gap: 1rem;
+        }
+
+        .section-header h1 {
+          font-size: 2rem;
+        }
+
+        .concours-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="logo"><span>E</span>SATIC</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'index' %}">ECOLE</a>
+          </li>
+          <li><a href="#formations">FORMATION</a></li>
+          <li><a href="#concours">VIE ESTUDIANTINE</a></li>
+          <li><a href="{% url 'concours' %}">CONCOURS</a></li>
+          <li><a href="{% url 'contact' %}">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Page Concours -->
+    <div class="container">
+      <div class="section-header">
+        <h1>Concours d'Admission</h1>
+        <p>
+          Rejoignez notre école d'excellence et donnez un nouvel élan à votre
+          carrière
+        </p>
+      </div>
+
+      <div class="concours-grid">
+        <div class="concours-card">
+          <h3>Concours Licence 1</h3>
+          <div class="date">📅 Session: Juin 2025</div>
+          <p>Accessible aux titulaires du baccalauréat toutes séries</p>
+          <ul>
+            <li>Épreuve écrite de mathématiques</li>
+            <li>Épreuve de culture générale</li>
+            <li>Test d'anglais</li>
+            <li>Entretien oral de motivation</li>
+          </ul>
+          <a href="{% url 'inscription' %}" class="btn" onclick="showInscription('licence1')"
+            >S'inscrire</a
+          >
+        </div>
+
+        <div class="concours-card">
+          <h3>Concours Licence 3</h3>
+          <div class="date">📅 Session: Juillet 2025</div>
+          <p>Ouvert aux étudiants ayant validé un Bac+2</p>
+          <ul>
+            <li>Étude de dossier académique</li>
+            <li>Épreuve de spécialité</li>
+            <li>Test d'aptitude technique</li>
+            <li>Entretien de motivation</li>
+          </ul>
+          <a href="{% url 'inscription' %}" class="btn" onclick="showInscription('licence3')"
+            >S'inscrire</a
+          >
+        </div>
+
+        <div class="concours-card">
+          <h3>Concours Master 1</h3>
+          <div class="date">📅 Session: Août 2025</div>
+          <p>Pour les titulaires d'une Licence (Bac+3)</p>
+          <ul>
+            <li>Dossier de candidature</li>
+            <li>Épreuve écrite de spécialité</li>
+            <li>Présentation du projet professionnel</li>
+            <li>Entretien avec jury d'experts</li>
+          </ul>
+          <a href="{% url 'inscription' %}" class="btn" onclick="showInscription('master1')"
+            >S'inscrire</a
+          >
+        </div>
+
+        <div class="concours-card">
+          <h3>Concours d'Ingénieur</h3>
+          <div class="date">📅 Session: Septembre 2025</div>
+          <p>Formation d'ingénieurs de haut niveau</p>
+          <ul>
+            <li>Épreuves scientifiques avancées</li>
+            <li>Tests de logique et raisonnement</li>
+            <li>Épreuve d'anglais technique</li>
+            <li>Entretien devant commission</li>
+          </ul>
+          <a href="{% url 'inscription' %}" class="btn" onclick="showInscription('ingenieur')"
+            >S'inscrire</a
+          >
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Informations Pratiques</h2>
+        <p>
+          Nos concours sont conçus pour identifier les candidats les plus
+          motivés et les plus aptes à réussir dans nos programmes d'excellence.
+        </p>
+
+        <h3 style="color: #002b5c; margin-top: 2rem; margin-bottom: 1rem">
+          Conditions d'admission
+        </h3>
+        <ul>
+          <li>Dossier de candidature complet</li>
+          <li>Relevés de notes des années précédentes</li>
+          <li>Lettre de motivation</li>
+          <li>Deux lettres de recommandation</li>
+          <li>Pièce d'identité valide</li>
+        </ul>
+
+        <h3 style="color: #002b5c; margin-top: 2rem; margin-bottom: 1rem">
+          Dates importantes
+        </h3>
+        <ul>
+          <li>Ouverture des inscriptions : 1er Mars 2025</li>
+          <li>Clôture des inscriptions : 15 Mai 2025</li>
+          <li>Publication des résultats : 30 jours après chaque session</li>
+        </ul>
+      </div>
+    </div>
+   <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo et Contact -->
+            <div class="footer-section logo-section">
+                 <h1>ESATIC</h1>
+                <div class="contact-info">
+                    <p><strong>Adresse:</strong></p>
+                    <p>Bd. de Marseille face à Bernabe – Km 4<br>
+                    Treichville – 18 BP 1501 Abidjan 18<br>
+                    Abidjan – Côte d'Ivoire</p>
+                    <p style="margin-top: 15px;"><strong>Contact:</strong></p>
+                    <p>📞 +225 27 21 21 81 00</p>
+                    <p>✉️ <a href="mailto:direction@esatic.edu.ci">direction@esatic.edu.ci</a></p>
+                </div>
+            </div>
+
+            <!-- Accès Rapide -->
+            <div class="footer-section">
+                <h3>Accès Rapide</h3>
+                <ul class="footer-links">
+                    <li><a href="#inscription">Inscription</a></li>
+                    <li><a href="#reinscription">Réinscription</a></li>
+                    <li><a href="#alumni">Alumni ESATIC</a></li>
+                    <li><a href="#bibliotheque">Bibliothèque Numérique</a></li>
+                </ul>
+            </div>
+                        <!-- Étudiant -->
+            <div class="footer-section">
+                <h3>Étudiant</h3>
+                <ul class="footer-links">
+                    <li><a href="#nouveaux">Nouveaux étudiants</a></li>
+                    <li><a href="#anciens">Anciens étudiants</a></li>
+                    <li><a href="#guide">Guide étudiant</a></li>
+                    <li><a href="#emploi">Emploi du temps</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                Copyright All Right Reserved 2024, ESATIC
+            </div>
+            <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+        </div>
+    <script>
+      // Gestion de l'inscription au concours
+      function showInscription(type) {
+        const types = {
+          licence1: "Licence 1",
+          licence3: "Licence 3",
+          master1: "Master 1",
+          ingenieur: "Ingénieur",
+        };
+
+        alert(
+          "Redirection vers le formulaire d'inscription pour le concours " +
+            types[type]
+        );
+        // Ici vous pouvez rediriger vers une page d'inscription spécifique
+        // window.location.href = 'inscription.html?type=' + type;
+      }
+    </script>
+  </body>
+</html>
